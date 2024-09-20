@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function color(){
+            var kolor = document.getElementById("click").value;
+            document.getElementById("c").setAttribute("fill",kolor);
+        }
+        function roz(){
+            var size = document.getElementById("click2").value;
+            document.getElementById("c").setAttribute("r",size);
+        }
+        function opac(){
+            var op = document.getElementById("click3").value;
+            document.getElementById("c").setAttribute("opacity",op);
+        }
+    </script>
+    <svg width="151px" height="151px">
+        <circle id="c" cx="75" cy="75" r="size" fill="kolor" opacity="op"/>
+    </svg>
+<br>
+<input type="text" id="click">
+<input type="button" onclick="color()">
+<input type="text" id="click2">
+<input type="button" onclick="roz()">
+<input type="text" id="click3">
+<input type="button" onclick="opac()">
+</body>
+</html>
