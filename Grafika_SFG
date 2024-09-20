@@ -19,16 +19,37 @@
             var op = document.getElementById("click3").value;
             document.getElementById("c").setAttribute("opacity",op);
         }
+        function wys(){
+            var wysokosc = document.getElementById("click4").value;
+            document.getElementById("c").setAttribute("cy",wysokosc);
+        }
     </script>
     <svg width="151px" height="151px">
-        <circle id="c" cx="75" cy="75" r="size" fill="kolor" opacity="op"/>
+        <circle id="c" cx="75" cy="wysokosc" r="size" fill="kolor" opacity="op" />
     </svg>
 <br>
-<input type="text" id="click">
-<input type="button" onclick="color()">
-<input type="text" id="click2">
-<input type="button" onclick="roz()">
+<label for="click">Wybierz kolor:</label>
+<select id="click">
+    <option value="red">Czerwony</option>
+    <option value="green">Zielony</option>
+    <option value="blue">Niebieski</option>
+    <option value="yellow">Żółty</option>
+    <option value="black">Czarny</option>
+</select>
+<input type="button" onclick="color()" value="Zmień kolor">
+
+<label for="click2">Wybierz figure:</label>
+<select id="click2">
+    <option value="50">Kolo</option>
+    <option value="250">Kwadrat</option>
+</select>
+<input type="button" onclick="roz()" value="Zmień ksztalt">
+
+<!--<input type="text" id="click2">
+<input type="button" onclick="roz()">-->
 <input type="text" id="click3">
 <input type="button" onclick="opac()">
+<input type="text" id="click4">
+<input type="button" onclick="wys()">
 </body>
 </html>
