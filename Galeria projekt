@@ -3,61 +3,91 @@ https://kursjs.pl/kurs/super-podstawy/tablice#nowa_tablica
 https://www.pexels.com/pl-pl/
 https://www.netflix.com/pl/title/81498377
 
-<script language="javascript">
-        let liczba1=prompt("Podaj liczbę","");
-        let liczba2=prompt("Podaj drugą liczbę","");
-        let wynik=(liczba1*liczba2)? liczba1*liczba2: liczba1*liczba2;
-        let metoda=(isNaN(wynik))? "to nie są liczby, ty debianie": "iloczyn liczb wynosi: "+liczba1*liczba2;
-        alert(metoda);
-
-       </script> 
-
-
-https://zsobobowa.eu/pliki/program/js/l18.htm
-
-</html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="cat.png"  sizes="192x192" type="image/png">
     <style>
-        div {height: 100vh;
-                width: 50%;}
-
-        content {display: flex;
-                height: auto;
-                width: auto;
-                flex-direction: column;}
-
-        body {margin: 0px;
-                padding: 0px;
-                display: flex;
-                flex-direction: row;}
-
-        div:nth-of-type(1) {display: flex;
-                            align-items: center;
-                            justify-content: center;}
-
-        button {align-self:flex-end;}
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap');
+        </style>
+    <title>kotki</title>
+    <style type="text/css">
+        body {
+            text-align: center;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' style='fill-rule:evenodd;text-rendering:geometricPrecision;image-rendering:optimizeQuality;clip-rule:evenodd;shape-rendering:geometricPrecision' xml:space='preserve' viewBox='0 0 7.5 7.5'%3E%3Cpath d='M0 3.8a3.7 3.7 0 1 1 7.5 0 3.7 3.7 0 0 1-7.5 0zm.5 0a3.3 3.3 0 1 0 6.6 0 3.3 3.3 0 0 0-6.6 0zm2.9 0c0 .2.2.3.4.3a.4.4 0 1 0-.4-.3z' style='fill:currentColor;stroke:currentColor;stroke-width:.0419595'/%3E%3C/svg%3E") 8 8, pointer;
+            background-color: rgb(166, 192, 215);
+            font-family: "Josefin Slab", serif;
+        }
+        img {
+            border: 1px rgb(181, 234, 243) solid;
+            border-radius: 25%;
+            width: 400px;
+            height: 300px;
+            transition: opacity 0.5s;
+        }
+        img:hover {
+            opacity: 0.7;
+            /*cursor: pointer;*/
+        }
+        .buttony{
+            border: none;
+            color: rgb(14, 55, 72);
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: "Josefin Slab", serif;
+            font-weight: 600;
+            border-radius:5%;
+        }
     </style>
 </head>
 <body>
-    <div style="background-color:blueviolet;">
-        <content>
-            <input type='text' id="tekst">
-            <button onclick="kolor()">OK</button>
-        </content>
-
-    </div>
-    <div style="background-color:chocolate;" id="zmianakolorow"> 
-        
-    </div>
-
-
+    <h2><a href="https://pl.wikipedia.org/wiki/Kot_domowy" style="color: rgb(14, 55, 72);">Kotki</a></h2>
+    <div id="zdjecie"><img id="photo" src="./zdjecia/0.jpg"></div>
+    <button type="button" class="buttony" id="previous">Previous</button>
+    <button type="button" class="buttony" id="next">Next</button>
     <script>
-        function kolor(){
-        
-        x = document.getElementById('tekst').value;
-        console.log(x);
+        let id = 0;
+        const numberOfPhotos = 7;
+        let big = false;
 
-        document.getElementById('zmianakolorow').style.backgroundColor = x;
+        document.getElementById("next").addEventListener("click", next);
+        document.getElementById("previous").addEventListener("click", prew);
+        document.getElementById("photo").addEventListener("click", bigPhoto);
+
+        function next() {
+            if (id < numberOfPhotos - 1) {
+                id++;
+            } else {
+                id = 0;
+            }
+            nowe();
+        }
+
+        function prew() {
+            if (id > 0) {
+                id--;
+            } else {
+                id = numberOfPhotos - 1;
+            }
+            nowe();
+        }
+
+        function nowe() {
+            const photoElement = document.getElementById("photo");
+            photoElement.src = "./zdjecia/" + id + ".jpg";
+            photoElement.style.width = big ? "600px" : "500px";
+            photoElement.style.height = big ? "400px" : "300px";
+        }
+
+        function bigPhoto() {
+            big = !big;
+            nowe();
         }
     </script>
 </body>
